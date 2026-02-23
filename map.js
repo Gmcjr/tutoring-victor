@@ -15,9 +15,7 @@ example output:
 */
 
 function getTitleAndYear(array){
-  return array.map(movie => {
-    return `${movie.title} (${movie.year})`;
-  });
+  
 }
 
 /*
@@ -37,10 +35,7 @@ example output:
 */
 
 function getLastSpecialFeature(array){
-  return array.map(movie => {
-    const { type, title } = movie.specialFeatures[movie.specialFeatures.length - 1];
-    return `${type} - ${title}`;
-  })
+  
 }
 
 /*
@@ -82,13 +77,7 @@ example output:
 */
 
 function getMappedObjects(array){
-  return array.map(movie => {
-    return {
-      title: movie.title,
-      genre: movie.genreTags[0],
-      specialFeatures: movie.specialFeatures.length;
-    }
-  });
+  
 }
 
 /*
@@ -108,12 +97,5 @@ example output:
 */
 
 function getAllFeatures(array){
-  return array.map(movie => {
-    const output = [];
-    const features = movie.specialFeatures;
-    for (let i = 0; i < features.length; i++){
-      output.push(features[i].type);
-    }
-    return output;
-  });
+  
 }
