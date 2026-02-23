@@ -4,8 +4,10 @@ This function should use the native filter method return a new array of only the
 movie objects whose title is just two words.
 */
 
-function getTwoWordTitles(){
-
+function getTwoWordTitles(array){
+  return array.filter(movie => {
+    return movie.title.split(" ").length === 2;
+  });
 }
 
 /*
