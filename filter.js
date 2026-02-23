@@ -5,9 +5,7 @@ movie objects whose title is just two words.
 */
 
 function getTwoWordTitles(array){
-  return array.filter(movie => {
-    return movie.title.split(" ").length === 2;
-  });
+  
 }
 
 /*
@@ -16,9 +14,10 @@ This function should use the native filter method to return a new array of only 
 objects that have a special feature that is less than 30 minutes.
 */
 
-function getShortSpecialFeatures(){
+function getShortSpecialFeatures(array){
+  
+};
 
-}
 
 /*
 Implement the function getCommentaries that takes in an array of movie objects. This function

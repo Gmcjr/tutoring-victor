@@ -67,11 +67,82 @@ describe("Filter Practice", () => {
               }
           ]
         }
-      ]
+      ];
+      expect(result).to.equal(correct);
     });
     it('should use the filter method', () => {
       getTwoWordTitles(collection);
       Array.prototype.filter.called.should.be.true;
     });
-  })
+  });
+
+  describe("getShortSpecialFeatures()", () => {
+    beforeEach(() => {
+      sinon.spy(Array.prototype, "filter");
+    });
+    afterEach(() => {
+      Array.prototype.filter.restore();
+    });
+    it('should return an array of films with special features shorter than 30 minutes', () => {
+      const result = getShortSpecialFeatures(collection);
+      const correct = [
+        {
+          title: 'Rear Window',
+          year: 1954,
+          director: 'Alfred Hitchcock',
+          digitalCode: null,
+          genreTags: ['Mystery', 'Suspense'],
+          specialFeatures: [
+              {
+                  type: 'Documentary',
+                  title: "Rear Window Ethics: An Original Documentary",
+                  length: '30 minutes'
+              },
+              {
+                  type: 'Commentary',
+                  title: 'Feature Commentary with John Fawell',
+                  length: '110 minutes'
+              },
+              {
+                  type: 'Interview',
+                  title: 'Hitchcock/Truffaut Interview Excerpts',
+                  length: '20 minutes'
+              }
+          ]
+        },
+        {
+          title: 'Big Trouble in Little China',
+          year: 1986,
+          director: 'John Carpenter',
+          digitalCode: null,
+          genreTags: ['Comedy', 'Fantasy'],
+          specialFeatures: [
+              {
+                  type: 'Commentary',
+                  title: 'Audio Commentary with Director John Carpenter and Actor Kurt Russell',
+                  length: '110 minutes'
+              },
+              {
+                  type: 'Alternate Edits',
+                  title: 'Deleted Scenes',
+                  length: '10 inutes'
+              },
+              {
+                  type: 'Interview',
+                  title: 'Vintage Interviews with Cast and Crew',
+                  length: '15 minutes'
+              }
+          ]
+        },
+      ];
+      expect(result).to.deep.equal(correct);
+    });
+
+    it('should use the filter method', () => {
+      getShortSpecialFeatures(collection);
+      Array.prototype.filter.called.should.be.true;
+    });
+  });
+
+  
 });
