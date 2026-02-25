@@ -15,8 +15,11 @@ example output:
 */
 
 function getTitleAndYear(array){
-  
+  return array.map(function(movie){
+    return movie.title + ' ' + '(' + movie.year + ')';
+  });
 }
+// console.log(getTitleAndYear(collection));
 
 /*
 Implement the function getLastSpecialFeature that takes in an array of movie objects.
@@ -35,8 +38,12 @@ example output:
 */
 
 function getLastSpecialFeature(array){
-  
-}
+  return array.map(function(movie){
+      let typeTitle = movie.specialFeatures[movie.specialFeatures.length - 1];
+      return typeTitle.type + ' ' + '-' + ' ' + typeTitle.title;
+    });
+  }
+console.log(getLastSpecialFeature(collection));
 
 /*
 Implement the function getMappedObjects that takes in an array of movie objects.
