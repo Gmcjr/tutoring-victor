@@ -48,5 +48,8 @@ the 1980s and have 'Horror' in their genreTags array.
 */
 
 function getEightiesHorror(array){
-  
+  return array.filter(function(movie){
+    return movie.year >= 1980 && movie.year <= 1989 && movie.genreTags.includes('Horror');
+  });
 }
+console.log(getEightiesHorror(collection));
