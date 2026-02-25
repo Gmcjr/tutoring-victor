@@ -18,8 +18,13 @@ objects that have a special feature that is less than 30 minutes.
 */
 
 function getShortSpecialFeatures(array){
-  
+  return array.filter(function(movie){
+    return movie.specialFeatures.filter(function(feature){
+        return feature.length.match(/\d+/) <= 30;
+    }).length > 0;
+  });
 };
+console.log(getShortSpecialFeatures(collection));
 
 
 /*
@@ -29,7 +34,11 @@ feature whose type is "Commentary"
 */
 
 function getCommentaries(array){
-  
+  return array.filter(function(movie){
+    return movie.specialFeatures.filter(function(feature){
+        return feature.type === 'Commentary'
+    }).length > 0;
+  });
 }
 
 /*
