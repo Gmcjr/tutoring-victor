@@ -9,7 +9,13 @@ example output:
 */
 
 function getNumDirector(array, director){
-  
+  let filmsByDirector = array.reduce(function(acc, film){
+    if(film.director === director){
+      acc += 1;
+    };
+    return acc;
+  }, 0);
+  return filmsByDirector;
 }
 
 /*
@@ -22,7 +28,13 @@ example output:
 */
 
 function getSuspenseTitles(array){
-  
+  let suspenseFilms = array.reduce(function(acc, film){
+    if(film.genreTags.includes('Suspense')){
+      acc.push(film.title);
+    }
+    return acc;
+  }, [])
+  return suspenseFilms;
 }
 
 /*
@@ -36,7 +48,16 @@ example output:
 */
 
 function getNumDocumentaryFeatures(array){
-  
+  let numDocs = array.reduce(function(acc, film){
+    // access film.specialFeatures, iterate through that array and find 'Documentary' in type
+    for(let i = 0; i < film.specialFeatures.length; i++){
+      if(film.specialFeatures[i].type === 'Documentary'){
+        acc += 1;
+      }
+    }
+    return acc;
+  }, 0)
+  return numDocs;
 }
 
 /*
@@ -55,6 +76,10 @@ example output:
 */
 
 function reduceObjects(array){
-  
+  let movieObj = array.reduce(function(acc, film){
+    acc[film.title] = film.year;
+    return acc;
+  }, {});
+  return movieObj;
 }
 
