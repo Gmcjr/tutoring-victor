@@ -43,7 +43,7 @@ function getLastSpecialFeature(array){
       return typeTitle.type + ' ' + '-' + ' ' + typeTitle.title;
     });
   }
-console.log(getLastSpecialFeature(collection));
+// console.log(getLastSpecialFeature(collection));
 
 /*
 Implement the function getMappedObjects that takes in an array of movie objects.
@@ -84,8 +84,16 @@ example output:
 */
 
 function getMappedObjects(array){
-  
+  return array.map(function(movie){
+    let movieMap = {
+      title: movie.title,
+      genre: movie.genreTags[0],
+      specialFeatures: movie.specialFeatures.length
+    };
+    return movieMap;
+  });
 }
+console.log(getMappedObjects(collection));
 
 /*
 Implement the function getAllFeatures that takes in an array of movie objects.
