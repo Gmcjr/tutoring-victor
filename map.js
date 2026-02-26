@@ -93,7 +93,7 @@ function getMappedObjects(array){
     return movieMap;
   });
 }
-console.log(getMappedObjects(collection));
+// console.log(getMappedObjects(collection));
 
 /*
 Implement the function getAllFeatures that takes in an array of movie objects.
@@ -112,5 +112,10 @@ example output:
 */
 
 function getAllFeatures(array){
-  
+  return array.map(function(movie){
+    return movie.specialFeatures.map(function(feature){
+      return feature.type;
+    });
+  });
 }
+console.log(getAllFeatures(collection));
