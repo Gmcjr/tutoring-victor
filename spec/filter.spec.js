@@ -68,7 +68,7 @@ describe("Filter Practice", () => {
           ]
         }
       ];
-      expect(result).to.equal(correct);
+      expect(result).to.deep.equal(correct);
     });
     it('should use the filter method', () => {
       getTwoWordTitles(collection);
@@ -294,7 +294,7 @@ describe("Filter Practice", () => {
         }
       ];
 
-      expect(result).to.deepEqual(correct);
+      expect(result).to.deep.equal(correct);
     });
 
     it('should use the filter method', () => {
